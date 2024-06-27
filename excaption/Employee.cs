@@ -1,7 +1,7 @@
 ﻿
 namespace excaption;
 
-internal class Employee : IPerson
+public class Employee : IPerson
 {
     public static int _id;
     public int Id { get; }
@@ -11,13 +11,16 @@ internal class Employee : IPerson
 
     public string ShowInfo()
     {
-        return $"{Name},{Age}";
+        return $"{Name},{Age},{Salary}";
     }
 
-    public Employee(Employee employee ,string name,string age,int salary)
+    public Employee(string name,int age,int salary)
     {
         _id++;
         Id = _id;
+        Name = name;
+        Age = age; 
+        Salary = salary;
 
     }
     public override string ToString()
@@ -25,8 +28,8 @@ internal class Employee : IPerson
         return ShowInfo();
     }
 
-    public static implicit operator Employee(int v)
-    {
-        throw new NotImplementedException();
-    }
+    //public static implicit operator Employee(int v)
+    //{
+    //    throw new NotImplementedException();
+    //}
 }
